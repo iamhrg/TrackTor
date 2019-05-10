@@ -2,9 +2,9 @@
 
 TrackTor is a platform independent tool that provides statistical and analytical data tracked from the tor services exercised by the end user. Some of the highlighting features of TrackTor include detailed Bandwidth, Connections and Resources usage information, Event Logs details and many more. TrackTor finds its significance and wide usage with respect to professional commercial and research work ongoing in the field of Deep/Dark web. It is an enhanced and versatile Graphical User Interface (GUI) based implementation, providing it an edge over the previously existing contemporary monitoring tools.
 
-![Home Page](Screenshots/Home.png)
+![Home Page](Screenshots/Logo.png)
 
-## Tool Features
+## TrackTor Features
 
 **General Features**
 
@@ -30,7 +30,7 @@ TrackTor is a platform independent tool that provides statistical and analytical
   14. Detailed Connections Information
   15. Detailed Resources Information
 
-### Technologies Used in Development
+## Technologies Used in Development
 
 1. Frontend (GUI) - PyQT5, Pyqtgraph
 
@@ -49,13 +49,36 @@ TrackTor is a platform independent tool that provides statistical and analytical
       9.  pycountry
       10. time, datetime, Calendar
       
-#### Getting Started TrackTor
+## Getting Started with TrackTor
 
-Under Construction!
+  Step 1 : Download and Setup Python on System (Python3+ Recommended)
 
-##### About the Developers
+  Step 2 : Download Tor Browser from https://www.torproject.org/download/languages/. It is the easiest and most common method to exercise TOR Network.
+
+  Step 3 : Copy the following command and run it in your native Terminal (CMD for Windows), Replace 'x' with your pip version (pip/pip3),
+  
+  ```
+  $ pipx install TrackTor
+  ```
+
+  Step 4 : Open/Run Tor Browser
+
+  Step 5 : Type and Run the following on Terminal,
+  
+  ```
+  $ TrackTor
+  ```
+  
+  Step 6 : Hurray! You have successfully setup TrackTor on your system.
+
+## Tool Demo
+
+![TrackTor Home Page Demo](Screenshots/TrackTor_Demo.gif)
+
+## About the Developers
 
 Institute : Malaviya National Institute of Technology
+
 Department : Computer Science & Engineering
 
 Project under Guidance of : Dr. Pilli Emmanuel Shubhakar - espilli.cse@mnit.ac.in
@@ -65,9 +88,3 @@ Developers,
   1. Harsh Gandhi   - hrgandhi1@gmail.com
   2. Ritu Karela    - ritukarela1234@gmail.com
   3. Parul Agrawal  - parulagrawal1507@gmail.com
-  
-
-
-
-
-

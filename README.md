@@ -81,10 +81,10 @@ Institute : Malaviya National Institute of Technology
 
 Department : Computer Science & Engineering
 
-Project under Guidance of : Dr. Pilli Emmanuel Shubhakar - espilli.cse@mnit.ac.in
-
 Developers,
   
   1. Harsh Gandhi   - hrgandhi1@gmail.com
   2. Ritu Karela    - ritukarela1234@gmail.com
   3. Parul Agrawal  - parulagrawal1507@gmail.com
+  
+Mentor : Dr. Pilli Emmanuel Shubhakar - espilli.cse@mnit.ac.in

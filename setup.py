@@ -14,7 +14,6 @@ setup(
           'pyqtgraph',
           'stem',
           'argparse',
-          'functools',
           'numpy',
           'pycountry',
           'psutil',

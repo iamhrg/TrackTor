@@ -1,8 +1,9 @@
+import setuptools
 from distutils.core import setup
 setup(
   name = 'TrackTor',
-  packages = ['TrackTor'],
-  version = '1.0',
+  packages = ['TrackTor', 'TrackTor.Home', 'TrackTor.Icons', 'TrackTor.Logs_Data', 'TrackTor.Utilities', 'TrackTor.Logs_Data.Tor', 'TrackTor.Logs_Data.TrackTor'],
+  version = '1.0',,
   license='GNU General Public License v3 or later (GPLv3+)',
   description = 'A Monitoring Tool for TOR Network',
   author = 'Dr. Pilli Emmanuel Shubhakar, Harsh Gandhi, Ritu Karela, Parul Agrawal',

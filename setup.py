@@ -16,7 +16,6 @@ setup(
           'argparse',
           'functools',
           'numpy',
-          'sqlite3',
           'pycountry',
           'psutil',
           'getpass',

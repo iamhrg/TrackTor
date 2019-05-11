@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="Icons">
+    <file>Images/Plus.png</file>
+    <file>Images/Minus.png</file>
+    <file>Images/Reset.png</file>
+  </qresource>
+</RCC>

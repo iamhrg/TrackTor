@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="Splashscreen">
+    <file>Images/Splashscreen.png</file>
+  </qresource>
+  <qresource prefix="Play/Pause">
+    <file>Images/Pause.png</file>
+    <file>Images/Play.png</file>
+  </qresource>
+</RCC>

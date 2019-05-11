@@ -18,7 +18,6 @@ setup(
           'numpy',
           'pycountry',
           'psutil',
-          'getpass',
       ],
   classifiers=[
     'Development Status :: 3 - Alpha',

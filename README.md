@@ -2,6 +2,8 @@
 
 TrackTor is a platform independent tool that provides statistical and analytical data tracked from the tor services exercised by the end user. Some of the highlighting features of TrackTor include detailed Bandwidth, Connections and Resources usage information, Event Logs details and many more. TrackTor finds its significance and wide usage with respect to professional commercial and research work ongoing in the field of Deep/Dark web. It is an enhanced and versatile Graphical User Interface (GUI) based implementation, providing it an edge over the previously existing contemporary monitoring tools.
 
+![TrackTor Logo](Screenshots/Logo.png)
+
 ## TrackTor Features
 
 **General Features**
@@ -68,6 +70,10 @@ TrackTor is a platform independent tool that provides statistical and analytical
   ```
 
   Step 6 : Hurray! You have successfully setup TrackTor on your system.
+
+## TrackTor Demo
+
+![Demo](TrackTor/Icons/TrackTor_Demo.gif)
 
 ## About the Developers
 

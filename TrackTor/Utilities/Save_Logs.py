@@ -13,33 +13,20 @@ This module will implement the funtionality of showing logs
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
 from PyQt5.QtGui import QIcon
-import TrackTor.Utilities.Logs
+from TrackTor.Utilities import Logs
+import logging
+import os
+import time
 
 class _Save_Logs(QWidget):
-
-    def openFileNameDialog(self):
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
-        fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
-        if fileName:
-            print(fileName)
-
-    def openFileNamesDialog(self):
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
-        files, _ = QFileDialog.getOpenFileNames(self,"QFileDialog.getOpenFileNames()", "","All Files (*);;Python Files (*.py)", options=options)
-        if files:
-            print(files)
 
     def saveFileDialog(self):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getSaveFileName(self,"Save Logs to File","","All Files (*);;Text Files (*.txt)", options=options)
         if fileName:
-            #print(fileName)
             file = open(fileName, "w")
             file.write('{0:20}  {1:10}  {2}\n'.format("Timestamp", "Category", "Message"))
-            #print (Logs.LogsArray)
             for item in Logs.LogsArray:
                 content = item[1].split(' ',1)
                 category = content[0]

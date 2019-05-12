@@ -1,0 +1,5 @@
+include TrackTor/Icons/*
+include TrackTor/*.db
+include TrackTor/*.txt
+include TrackTor/Home/*
+include TrackTor/Logs_Data/*

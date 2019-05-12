@@ -30,10 +30,10 @@ import time
 from TrackTor.Home.Edit_Torrc import _Edit_Torrc
 import stem.descriptor.router_status_entry
 import sqlite3
-if sys.platform == "win32":
-    conn = sqlite3.connect('TrackTor\\Consensus.db')
-else:
-    conn = sqlite3.connect('TrackTor/Consensus.db')
+import pkg_resources
+
+DB_FILE = pkg_resources.resource_filename("TrackTor", "Consensus.db")
+conn = sqlite3.connect(DB_FILE)
 
 c = conn.cursor()
 
@@ -58,12 +58,10 @@ class Ui_TrackTor(object):
     #Edit torrc Function
     def torrc(self):
         try:
-            print ("Ritu")
             from TrackTor.Home.Edit_Torrc import _Open_File
             _Open_File._File_Open()
             _Edit_Torrc.Open_Edit_Torrc(_Edit_Torrc)
-        except OSError:
-            print ("Harsh")
+        except:
             from  TrackTor.Home import MessageBox
             MessageBox.box.showMessageBox(MessageBox.box,'Alert', 'Provide Permissions to Torrc File to open this Window')
 
@@ -77,20 +75,20 @@ class Ui_TrackTor(object):
         StaticInfo.controller.reconnect()
         self.OK.click()
 
-    def setupUi(self, TrackTor):
-        import Logs_Data
-        TrackTor.setObjectName("TrackTor")
-        TrackTor.resize(850, 666)
+    def setupUi(self, Tracktor):
+        import TrackTor.Logs_Data
+        Tracktor.setObjectName("Tracktor")
+        Tracktor.resize(850, 666)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(TrackTor.sizePolicy().hasHeightForWidth())
-        TrackTor.setSizePolicy(sizePolicy)
-        TrackTor.setMinimumSize(QtCore.QSize(850, 650))
-        TrackTor.setMaximumSize(QtCore.QSize(850, 666))
-        TrackTor.setStyleSheet("")
+        sizePolicy.setHeightForWidth(Tracktor.sizePolicy().hasHeightForWidth())
+        Tracktor.setSizePolicy(sizePolicy)
+        Tracktor.setMinimumSize(QtCore.QSize(850, 650))
+        Tracktor.setMaximumSize(QtCore.QSize(850, 666))
+        Tracktor.setStyleSheet("")
 
-        self.Main_Window = QtWidgets.QWidget(TrackTor)
+        self.Main_Window = QtWidgets.QWidget(Tracktor)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -141,19 +139,19 @@ class Ui_TrackTor(object):
         _Tabs._About(self)
 
         self.gridLayout.addWidget(self.Main_Tabs, 1, 0, 1, 1)
-        TrackTor.setCentralWidget(self.Main_Window)
-        self.retranslateUi(TrackTor)
+        Tracktor.setCentralWidget(self.Main_Window)
+        self.retranslateUi(Tracktor)
         self.Main_Tabs.setCurrentIndex(0)
-        QtCore.QMetaObject.connectSlotsByName(TrackTor)
+        QtCore.QMetaObject.connectSlotsByName(Tracktor)
 
-    def retranslateUi(self, TrackTor):
+    def retranslateUi(self, Tracktor):
         _translate = QtCore.QCoreApplication.translate
-        TrackTor.setWindowTitle(_translate("TrackTor", "TrackTor"))
-        self.Uptime.setText(_translate("TrackTor", "Uptime:"))
-        self.PID.setText(_translate("TrackTor", "PID:"))
-        self.Control_port.setText(_translate("TrackTor", "Control Port:"))
-        self.Tor.setText(_translate("TrackTor", "Tor Version:"))
-        self.Main_Tabs.setWhatsThis(_translate("TrackTor", "<html><head/><body><p><br/></p></body></html>"))
+        Tracktor.setWindowTitle(_translate("Tracktor", "Tracktor"))
+        self.Uptime.setText(_translate("Tracktor", "Uptime:"))
+        self.PID.setText(_translate("Tracktor", "PID:"))
+        self.Control_port.setText(_translate("Tracktor", "Control Port:"))
+        self.Tor.setText(_translate("Tracktor", "Tor Version:"))
+        self.Main_Tabs.setWhatsThis(_translate("Tracktor", "<html><head/><body><p><br/></p></body></html>"))
         self.New_Identity.setText(_translate("TrackTor", "New Identity"))
         self.Reload_Tor.setText(_translate("TrackTor", "Reload Tor"))
         self.Edit_torrc.setText(_translate("TrackTor", "Edit Torrc"))

@@ -45,23 +45,26 @@ import argparse
 import stem.connection
 import sys
 import os
+import pkg_resources
+
+DATA_PATH = pkg_resources.resource_filename("TrackTor", "Error.txt")
+
 _stderr = sys.stderr
 _stdout = sys.stdout
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--ctrlport", help="default: 9051 or 9151")
-parser.add_argument("--resolver", help="default: autodetected")
-args = parser.parse_args()
-control_port = int(args.ctrlport) if args.ctrlport else 'default'
-if sys.platform == 'win32':
-    sys.stdout = open(os.path.join("TrackTor", "Error.txt"), "w")
-else:
-    sys.stdout = open(os.path.join("TrackTor", "Error.txt"), "w")
-controller = stem.connection.connect(control_port = ('127.0.0.1', control_port))
-if not controller:
-    sys.stdout = open ('TrackTor/Error.txt', 'w')
-    from TrackTor.Start import _Start_Box
-    _Start_Box.Open_Alert_Box(_Start_Box)
-    sys.exit()
-else:
-    from main import *
+def TrackTor_Main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--ctrlport", help="default: 9051 or 9151")
+    parser.add_argument("--resolver", help="default: autodetected")
+    args = parser.parse_args()
+    control_port = int(args.ctrlport) if args.ctrlport else 'default'
+    sys.stdout = open(DATA_PATH, "r")
+    try:
+        controller = stem.connection.connect(control_port = ('127.0.0.1', control_port))
+        import TrackTor.main
+    except (OSError, IOError):
+        from TrackTor.Start import _Start_Box
+        _Start_Box.Open_Alert_Box(_Start_Box)
+        sys.exit()
+
+TrackTor_Main()

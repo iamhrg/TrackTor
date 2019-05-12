@@ -860,10 +860,15 @@ class _Tabs():
             self.RI_timer.start(2000)
 
             def _Node_Details(fingerprint):
+                import sqlite3
+                import pkg_resources
                 router_status_entry = self.controller.get_network_status(fingerprint, None)
                 Fingerprint = 'Fingerprint : ' + fingerprint
-                import main
-                address = main.c.execute('SELECT address FROM Relay_Info WHERE fingerprint=?', (fingerprint,)).fetchone()
+                DB_FILE = pkg_resources.resource_filename("TrackTor", "Consensus.db")
+                conn = sqlite3.connect(DB_FILE)
+
+                c = conn.cursor()
+                address = c.execute('SELECT address FROM Relay_Info WHERE fingerprint=?', (fingerprint,)).fetchone()
                 if address:
                     Address = 'Address : ' + str(address[0])
                     locale = self.controller.get_info('ip-to-country/%s' %address , None)

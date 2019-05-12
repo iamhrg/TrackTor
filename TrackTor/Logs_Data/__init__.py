@@ -10,6 +10,7 @@ from TrackTor.Utilities import StaticInfo
 import sys
 import time
 import os
+import pkg_resources
 
 TrackTor_Events = ['BW', 'CIRC', 'ADDRMAP', 'BUILDTIMEOUT_SET', 'CELL_STATS', 'CIRC_BW',
 'CIRC_MINOR', 'CLIENTS_SEEN', 'CONF_CHANGED', 'CONN_BW', 'DEBUG', 'DESCCHANGED', 'ERR',
@@ -43,18 +44,27 @@ def Collect_Logs(listener):
     global file
     if sys.platform == "win32":
         Uptime = time.strftime("%d-%m-%Y_%H-%M-%S", time.localtime())
-        name = "_" + Uptime
-        #filename = os.path.join("Logs_Data", name)
+        name = "Tor_" + Uptime
+        name1 = "TrackTor_" + Uptime
     else:
         Uptime = time.strftime("%d-%m-%Y_%H:%M:%S", time.localtime())
-        name = "_" + Uptime
+        name = "Tor_" + Uptime
+        name1 = "TrackTor_" + Uptime
 
     if sys.platform == "win32":
-        file = open(os.path.join("TrackTor\\Logs_Data\\Tor", name), "w")
-        logging.basicConfig(filename=os.path.join("TrackTor\\Logs_Data\\TrackTor", name), filemode='w', level=logging.ERROR)
+        name = "Logs_Data\\" + name
+        DATA_PATH = pkg_resources.resource_filename("TrackTor", name)
+        file = open(DATA_PATH, "w")
+        name1 = "Logs_Data\\" + name1
+        DATA_PATH1 = pkg_resources.resource_filename("TrackTor", name1)
+        logging.basicConfig(filename=DATA_PATH1, filemode='w', level=logging.ERROR)
     else:
-        file = open(os.path.join("TrackTor/Logs_Data/Tor", name), "w")
-        logging.basicConfig(filename=os.path.join("TrackTor/Logs_Data/TrackTor", name), filemode='w', level=logging.ERROR)
+        name = "Logs_Data/" + name
+        DATA_PATH = pkg_resources.resource_filename("TrackTor", name)
+        file = open(DATA_PATH, "w")
+        name1 = "Logs_Data/" + name1
+        DATA_PATH1 = pkg_resources.resource_filename("TrackTor", name1)
+        logging.basicConfig(filename=DATA_PATH1, filemode='w', level=logging.ERROR)
 
     file.write('{0:20}  {1:10}  {2}\n'.format("Timestamp", "Category", "Message"))
     StaticInfo.controller.add_event_listener(listener, *TrackTor_Events)

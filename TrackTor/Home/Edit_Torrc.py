@@ -33,7 +33,6 @@ original_Torrc = []
 original_Torrc1 = []
 class _Open_File():
 	def _File_Open():
-		print ("Parul")
 		if sys.platform == "win32":
 		    file = open ("C:/Tor Browser/Browser/TorBrowser/Data/Tor/torrc-defaults", "r+")
 		elif sys.platform in ["linux1", "linux2", "linux"]:

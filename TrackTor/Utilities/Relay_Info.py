@@ -110,10 +110,9 @@ class _Relay_Info():
 
                     import sqlite3
                     import sys
-                    if sys.platform == "win32":
-                        conn = sqlite3.connect('TrackTor\\Consensus.db')
-                    else:
-                        conn = sqlite3.connect('TrackTor/Consensus.db')
+                    import pkg_resources
+                    DB_FILE = pkg_resources.resource_filename("TrackTor", "Consensus.db")
+                    conn = sqlite3.connect(DB_FILE)
                     c = conn.cursor()
                     address = c.execute('SELECT address FROM Relay_Info WHERE fingerprint=?', (EndNode_fingerprint,)).fetchone()
                     if address:
